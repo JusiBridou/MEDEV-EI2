@@ -11,23 +11,23 @@ import java.util.ArrayList;
  * Les "?" et les coffres au trésor sur le plateau
  * @author jujus
  */
-public class CaseCarte extends CaseSpeciale {
+public class CaseCarte extends CaseSpeciale{
     private String type; //Type de la case : "chance" ou "communaute"
     
     /**
      * Constructeur par défaut d'une case Carte
      */
-    public void CaseCarte() {
+    /*public void CaseCarte() {
         super();
         type = "chance";
-    }
+    }*/
     
     /**
      * Constructeur d'une CaseCarte à partir de son type
      * @param type le type de la case "chance" ou "communaute"
      */
-    public void CaseCarte(String type){
-        super();
+    public CaseCarte(String type, String nom, int numero){
+        super(nom, numero);
         checkType(type);
         this.type = type;
     }
@@ -38,8 +38,8 @@ public class CaseCarte extends CaseSpeciale {
      * @param nom le nom de la case
      * @param type le type de la case : "chance" ou "communaute"
      */
-    public void CaseCarte(int numero, String nom, String type){
-        super(numero, nom);
+    public CaseCarte(String nom, int numero,  String type){
+        super(nom, numero);
         checkType(type);
         this.type = type;        
     }
