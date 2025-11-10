@@ -6,7 +6,6 @@ package org.centrale.medev.monopoly.monopoly;
 
 /**
  *
-<<<<<<< HEAD
  * @author selli
  */
 public class Joueur {
