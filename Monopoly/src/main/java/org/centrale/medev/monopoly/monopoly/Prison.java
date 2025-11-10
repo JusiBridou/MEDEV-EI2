@@ -16,4 +16,13 @@ public class Prison extends CaseSpeciale {
     public Prison() {
 		super(10, "Prison");
 	}
+	
+	/**
+	 * Redéfinition de la fonction toString
+	 * @return Prison
+	 */
+	@Override
+	public String toString() {
+		return this.getNom();
+	}
 }
