@@ -55,8 +55,12 @@ public class Plateau {
         }
     }
 
-    public void supprimerJoueur(Joueur j){
-        joueurs.remove(j);
+    public void supprimerJoueur(){
+        for(Joueur j : joueurs){
+            if(j.getFortune()<0){
+                joueurs.remove(j);
+            }
+        }
     }
     
     public boolean finDePartie(){
