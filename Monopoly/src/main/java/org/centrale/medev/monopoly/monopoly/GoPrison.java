@@ -25,9 +25,9 @@ public class GoPrison extends CaseSpeciale {
 	 */
 	public void envoyerJoueurPrison(Joueur j) {
 		ArrayList<Case> plateau = j.getPlateau().getPlateau();
-		for (Case case : plateau) {
-			if (case.getNom().equals("Prison")) {
-				j.setCase(case);
+		for (Case case_jeu : plateau) {
+			if (case_jeu.getNom().equals("Prison")) {
+				j.setCase(case_jeu.getNumero());
 				j.setTourRestantPrison(3);
 				
 				break;
