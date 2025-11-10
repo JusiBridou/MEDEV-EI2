@@ -6,8 +6,20 @@ package org.centrale.medev.monopoly.monopoly;
 
 /**
  *
- * @author Max
+ * @author selli
  */
 public class Plateau {
     
+    
+    public int nbGares(Joueur j){
+        int nb_gares = 0;
+        
+        for(Case c : j.getCaseDetenue()){
+            if(c instanceof Gare){
+                nb_gares++;
+            }
+        }
+        
+        return nb_gares;
+    }
 }

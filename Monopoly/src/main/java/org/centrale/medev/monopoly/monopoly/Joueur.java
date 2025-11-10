@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author Max
+ * @author selli
  */
 public class Joueur {
 
@@ -69,5 +69,15 @@ public class Joueur {
             }
         }
     }   
-
+    
+    public void paiement(int x, Joueur j){
+        if (x>this.fortune){
+            j.fortune += this.fortune;
+            this.fortune = 0;
+        }else{
+            j.fortune += this.fortune;
+            this.fortune = this.fortune - x;
+        }
+    }
+ 
 }
