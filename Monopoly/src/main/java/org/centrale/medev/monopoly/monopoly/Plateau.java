@@ -113,6 +113,12 @@ public class Plateau {
         for(Joueur j : joueurs){
             if(j.getFortune()<0){
                 joueurs.remove(j);
+                for(Case c : plateau){
+                    if(c instanceof CaseAchetable){
+                        if(((CaseAchetable) c).getProprietaire() == j)
+                        ((CaseAchetable) c).setProprietaire(null);
+                    }
+                }
             }
         }
     }
