@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 
 /**
@@ -18,7 +19,7 @@ public class Plateau {
     private ArrayList<Case> plateau;
     private LinkedList<Joueur> joueurs;
     private ArrayList<Carte> piocheChance;
-    private ArrayList<Carte> piocheCommunaute;
+    private ArrayList<Carte> piocheCommune;
     private ArrayList<Carte> defausseChance;
     private ArrayList<Carte> defausseCommunaute;
     private int nbToursMax = 100;
@@ -56,35 +57,35 @@ public class Plateau {
             //joueur avance
             j.avance(d1+d2,plateau.get(j.getPosition()-1));
             System.out.println("Vous etes maintenant à la case " + j.getPosition());
-            
+            Case c = plateau.get(j.getPosition()-1);
             //on teste si on est sur une case achetable ou non
-            if (plateau.get(j.getPosition()-1) instanceof CaseAchetable){
-                if (plateau.get(j.getPosition()-1).proprietaire!=null && (j.getPosition()-1).proprietaire != j){//case appartient à quelqu'un
-                    int m = plateau.get(j.getPosition()-1).calculerLoyer();
-                    j.paiement(m,plateau.get(j.getPosition()-1).proprietaire);//paiement au joueur qu'il faut
+            if (c instanceof CaseAchetable){
+                if ((((CaseAchetable)c).getProprietaire() != null) && (((CaseAchetable)c).getProprietaire() != j)){//case appartient à quelqu'un
+                    int m = ((CaseAchetable)c).calculerLoyer(j);
+                    j.paiement(m,((CaseAchetable)c).getProprietaire());//paiement au joueur qu'il faut
                 } else{//case vide
-                    System.out.println("Voulez-vous acheter cette case pour le prix de " + plateau.get(j.getPosition()-1).prix + " ? (oui ou non)");
+                    System.out.println("Voulez-vous acheter cette case pour le prix de " + ((CaseAchetable)c).getPrix() + " ? (oui ou non)");
                     Scanner sc = new Scanner(System.in);
                     String choix = sc.nextLine();
                     if (choix.equalsIgnoreCase("oui")){
-                        plateau.get(j.getPosition()-1).acheter(j);
+                        ((CaseAchetable)c).acheter(j);
                         }
                 }
             } else{//case spéciale
-                if (plateau.get(j.getPosition()-1) instanceof Taxe){//paye taxe
+                if (c instanceof Taxe){//paye taxe
                     int f = j.getFortune();
-                    j.setFortune(f-plateau.get(j.getPosition()-1).getMontant());
+                    j.setFortune(f-((Taxe)c).getMontant());
                 } else if (plateau.get(j.getPosition()-1) instanceof GoPrison){//allez en prison
-                    plateau.get(j.getPosition()-1).envoyerJoueurPrison(j);
-                } else if (plateau.get(j.getPosition()-1) instanceof CaseCarte){
-                    if (plateau.get(j.getPosition()-1).getType()=="chance"){
-                        Carte c = plateau.get(j.getPosition()-1).tirerUneCarte(this.piocheChance);
+                    ((GoPrison)c).envoyerJoueurPrison(j);
+                } else if (c instanceof CaseCarte){
+                    if (((CaseCarte)c).getType()=="chance"){
+                        Carte carte = ((CaseCarte)c).tirerUneCarte(this.piocheChance);
                         int f = j.getFortune();
-                        j.setFortune(f+c.getEffet);
+                        j.setFortune(f+carte.getEffet());
                     } else {
-                        Carte c = plateau.get(j.getPosition()-1).tirerUneCarte(this.piocheCommune);
+                        Carte carte = ((CaseCarte)c).tirerUneCarte(this.piocheCommune);
                         int f = j.getFortune();
-                        j.setFortune(f+c.getEffet);
+                        j.setFortune(f+carte.getEffet());
                     }      
                 }
             }
@@ -177,7 +178,7 @@ public class Plateau {
         
         for(int i=0; i < 25; i++){
             piocheChance.add(new Carte("chance"));
-            piocheCommunaute.add(new Carte("communaute"));
+            piocheCommune.add(new Carte("communaute"));
         }
         
     }
