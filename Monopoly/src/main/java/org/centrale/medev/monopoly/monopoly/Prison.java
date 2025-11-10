@@ -8,6 +8,8 @@ package org.centrale.medev.monopoly.monopoly;
  *
  * @author Max
  */
-public class Prison {
-    
+public class Prison extends CaseSpeciale {
+    public Prison() {
+		super(10, "Prison");
+	}
 }
