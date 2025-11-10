@@ -17,7 +17,7 @@ public class GoPrison extends CaseSpeciale {
          * 
 	 */
     public GoPrison() {
-		super(30, "Aller en prison");
+		super("Aller en prison", 30 );
 	}
 	
 	/**
@@ -26,9 +26,9 @@ public class GoPrison extends CaseSpeciale {
 	 */
 	public void envoyerJoueurPrison(Joueur j) {
 		ArrayList<Case> plateau = j.getPlateau().getPlateau();
-		for (Case case : plateau) {
-			if (case.getNom().equals("Prison")) {
-				j.setCase(case);
+		for (Case c : plateau) {
+			if (c.getNom().equals("Prison")) {
+				j.setCase(c);
 				j.setTourRestantPrison(3);
 				
 				break;
