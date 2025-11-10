@@ -5,10 +5,14 @@
 package org.centrale.medev.monopoly.monopoly;
 
 /**
- *
+ * Classe de la case prison
  * @author Max
  */
 public class Prison extends CaseSpeciale {
+	
+	/**
+	 * Constructeur de la case prison
+	 */
     public Prison() {
 		super(10, "Prison");
 	}

@@ -127,6 +127,7 @@ public class Joueur {
                 position=position+1;
             }else{
                 position=0;
+                this.setFortune(this.fortune + 200);
             }
         }
     }   
