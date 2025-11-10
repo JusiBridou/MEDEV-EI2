@@ -17,8 +17,11 @@ public class Joueur {
     private int fortune;
     private int position;
     private Plateau plateau;
+    private int nbGare;
+    private int nbFournisseur;
     
     private int tourRestantPrison;
+    
     
     /**
      *  Constructeur d'un joueur
@@ -26,13 +29,19 @@ public class Joueur {
      * @param fortune
      * @param position
      * @param plateau
+     * @param nbGare
+     * @param nbFournisseur
+     * @param tourRestantPrison
      */
-    public Joueur(String nom, int fortune, int position, Plateau plateau) {
+    
+    public Joueur(String nom, int fortune, int position, Plateau plateau, int nbGare, int nbFournisseur, int tourRestantPrison) {    
         this.nom = nom;
         this.fortune = fortune;
         this.position = position;
         this.plateau = plateau;
-        
+        this.nbGare = nbGare;
+        this.nbFournisseur = nbFournisseur;
+        this.tourRestantPrison = tourRestantPrison;
     }
 
     /**
@@ -108,13 +117,10 @@ public class Joueur {
     }
     
     /**
-     * Le joueur avance
+     * Le joueur avance de d case depuis la case c
      * @param d lancer de dès
      * @param c case
      */
-
-    
-    
     public void avance(int d,Case c){
         for(int i=0; i<d;i++){
             if (position+1<40){
@@ -125,6 +131,22 @@ public class Joueur {
             }
         }
     }   
+
+    public int getNbGare() {
+        return nbGare;
+    }
+
+    public void setNbGare(int nbGare) {
+        this.nbGare = nbGare;
+    }
+
+    public int getNbFournisseur() {
+        return nbFournisseur;
+    }
+
+    public void setNbFournisseur(int nbFournisseur) {
+        this.nbFournisseur = nbFournisseur;
+    }
     
     /**
      * Un paiement

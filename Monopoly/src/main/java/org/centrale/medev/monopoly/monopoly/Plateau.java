@@ -15,6 +15,8 @@ import java.util.LinkedList;
 public class Plateau {
     private ArrayList<Case> plateau;
     private LinkedList<Joueur> joueurs;
+    private int nbToursMax = 100;
+    private int compteurTours = 1;
     /**
      * 
      */
@@ -41,6 +43,15 @@ public class Plateau {
             case_plateau.toString();
         }
     }
+
+    public void supprimerJoueur(Joueur j){
+        joueurs.remove(j);
+    }
+    
+    public boolean finDePartie(){
+        return (joueurs.size()<=1 || compteurTours > nbToursMax) ;
+    }
+    
     public ArrayList getPlateau() {
         return plateau;
     }
