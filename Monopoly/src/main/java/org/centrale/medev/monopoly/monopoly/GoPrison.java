@@ -28,6 +28,8 @@ public class GoPrison extends CaseSpeciale {
 		for (Case case : plateau) {
 			if (case.getNom().equals("Prison")) {
 				j.setCase(case);
+				j.setTourRestantPrison(3);
+				
 				break;
 			}
 		}
