@@ -16,4 +16,8 @@ public abstract class Case {
         this.nom= nom;
         this.numero=numero;
     }
+    
+    public String toString(){
+        return nom;
+    }
 }
