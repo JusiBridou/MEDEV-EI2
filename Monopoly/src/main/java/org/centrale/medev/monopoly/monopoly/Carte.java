@@ -21,6 +21,7 @@ public class Carte {
      * @param texte le texte
      */
     public Carte(String type, int effet, String texte) {
+        checkType(type);
         this.type = type;
         this.effet = effet;
         this.texte = texte;
@@ -53,6 +54,7 @@ public class Carte {
      * @param type le type de la carte
      */
     public Carte(String type){
+        checkType(type);
         Random randomNumbers = new Random(); // valeure aléatoire
         this.type = type;
         this.effet = randomNumbers.nextInt(301) - 150;
@@ -63,6 +65,16 @@ public class Carte {
             this.texte = "Malheur ! Vous devez " +streffet+ " à la banque !";
         } else {
             this.texte = "Une journée comme une autre, il ne se passe rien.";
+        }
+    }
+    
+    /**
+     * Méthode privée pour vérifier si le type est valide
+     * @param type le type de la case
+     */
+    private void checkType(String type) {
+        if (!type.toLowerCase().equals("chance") && !type.toLowerCase().equals("communaute")) {
+            throw new IllegalArgumentException("Type de case invalide : " + type);
         }
     }
 }
