@@ -8,6 +8,8 @@ package org.centrale.medev.monopoly.monopoly;
  *
  * @author Max
  */
-public class CaseSpeciale {
-    
+public abstract class CaseSpeciale extends Case{
+    public CaseSpeciale(String nom, int numero){
+        super(nom,numero);
+    }
 }
