@@ -29,6 +29,7 @@ public class Carte {
 
     /**
      * Constructeur par défaut
+     * Construit une carte aléatoire
      */
     public Carte() {
         Random randomNumbers = new Random(); // valeure aléatoire
@@ -51,6 +52,7 @@ public class Carte {
     
     /**
      * Constructeur spécifique au type
+     * Construit une carte du type correspondant d'un montant aléatoire entre -150 et 150
      * @param type le type de la carte
      */
     public Carte(String type){
@@ -77,6 +79,15 @@ public class Carte {
             throw new IllegalArgumentException("Type de case invalide : " + type);
         }
     }
+    
+    /**
+    * Affiche les informations de la carte
+    */
+   public void affiche() {
+       System.out.println("📇 Carte " + type.toUpperCase());
+       System.out.println("Montant : " + effet + " €");
+       System.out.println("Texte : " + texte);
+   }
 
     /**
      * Guetter de type
