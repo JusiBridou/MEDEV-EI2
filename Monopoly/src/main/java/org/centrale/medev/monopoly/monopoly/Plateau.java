@@ -6,7 +6,7 @@ package org.centrale.medev.monopoly.monopoly;
 
 /**
  *
- * @author Max
+ * @author selli
  */
 public class Plateau {
     
