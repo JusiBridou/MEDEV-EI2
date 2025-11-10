@@ -4,18 +4,21 @@
  */
 package org.centrale.medev.monopoly.monopoly;
 
+import java.util.List;
+
 /**
  *
  * @author selli
  */
 public class Joueur {
-    String nom;
-    int fortune;
-    int position;
-    Plateau plateau;
 
+    private String nom;
+    private int fortune;
+    private int position;
+    private Plateau plateau;
     
-    // 
+    private List<Case> caseDetenue;
+
     public String getNom() {
         return nom;
     }
@@ -47,4 +50,15 @@ public class Joueur {
     public void setPlateau(Plateau plateau) {
         this.plateau = plateau;
     }
+
+    public List<Case> getCaseDetenue() {
+        return caseDetenue;
+    }
+
+    public void setCaseDetenue(List<Case> caseDetenue) {
+        this.caseDetenue = caseDetenue;
+    }
+    
+    
+
 }
