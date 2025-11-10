@@ -42,6 +42,13 @@ public class Plateau {
         
         return dé2;
     }
+
+    public void init_joueurs(int nbJoueurs){
+        for(int i=0; i<nbJoueurs; i++){
+            joueurs.add(new Joueur("Joueur "+Integer.toString(i), 1500, 0, this, 0, 0, 0));
+        }
+    }
+    
     public void affiche(){
         for(Case case_plateau : plateau){
             case_plateau.toString();
