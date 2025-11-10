@@ -108,10 +108,18 @@ public class Joueur {
         this.plateau = plateau;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTourRestantPrison() {
         return tourRestantPrison;
     }
 
+    /**
+     *
+     * @param tourRestantPrison
+     */
     public void setTourRestantPrison(int tourRestantPrison) {
         this.tourRestantPrison = tourRestantPrison;
     }
@@ -132,18 +140,34 @@ public class Joueur {
         }
     }   
 
+    /**
+     *
+     * @return
+     */
     public int getNbGare() {
         return nbGare;
     }
 
+    /**
+     *
+     * @param nbGare
+     */
     public void setNbGare(int nbGare) {
         this.nbGare = nbGare;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNbFournisseur() {
         return nbFournisseur;
     }
 
+    /**
+     *
+     * @param nbFournisseur
+     */
     public void setNbFournisseur(int nbFournisseur) {
         this.nbFournisseur = nbFournisseur;
     }
