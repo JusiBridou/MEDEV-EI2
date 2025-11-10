@@ -20,7 +20,7 @@ public abstract class CaseAchetable extends Case{
      * @param nom
      */
     public CaseAchetable(int prix, Joueur proprietaire, int numero, String nom) {
-        super(numero, nom);
+        super(nom, numero);
         this.prix = prix;
         this.proprietaire = proprietaire;
     }
