@@ -43,22 +43,20 @@ public class Fournisseur extends CaseAchetable{
     /**
      * Méthode qui permet de calculer le loyer d'une case fournisseur
      * @param prop joueur qui possède la case fournisseur
-     * @param scoreDe score de dé du tour de jeu du joueur qui est arrivé sur cette case
-     * @return le loyer à payer sur cette case selon le score de dé du joueur et le nombre de fournisseurs possédés par le joueur à payer
+     * @return le loyer à payer sur cette case selon le score d'un dé et le nombre de fournisseurs possédés par le joueur à payer
      */
-    public int calculerLoyer(Joueur prop, int scoreDe) {
+    @Override
+    public int calculerLoyer(Joueur prop) {
         if (prop==null){
             return 0;
         }
         else{
-            switch(prop.getNbFournisseur()){
-                case 1:
-                    return 4*scoreDe*this.getPrix();
-                case 2:
-                    return 10*scoreDe*this.getPrix();
-                default:
-                    return 0;
-            }
+            int scoreDe = ((int) Math.floor(Math.random()*6))+1;;
+            return switch (prop.getNbFournisseur()) {
+                case 1 -> 4*scoreDe*this.getPrix();
+                case 2 -> 10*scoreDe*this.getPrix();
+                default -> 0;
+            };
         }
     }
 }
