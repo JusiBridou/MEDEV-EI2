@@ -117,10 +117,11 @@ public class Joueur {
     
     public void avance(int d,Case c){
         for(int i=0; i<d;i++){
-            if (position+1<Plateau.getPlateauSize()){
+            if (position+1<40){
                 position=position+1;
             }else{
                 position=0;
+                this.setFortune(this.fortune + 200);
             }
         }
     }   
